@@ -1,0 +1,32 @@
+﻿@model IEnumerable<FinanceScraper.Models.User>
+
+@{
+    ViewData["Title"] = "Users";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Users</h1>
+
+@if (!Model.Any())
+{
+    <p>There are no users yet.</p>
+}
+else
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+        <tr>
+            <th>User</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@Html.ActionLink(user.Name, "Details", "Users", new { id = user.Id }, null)</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+

@@ -1,0 +1,25 @@
+﻿@model FinanceScraper.ViewModels.RandomStockViewModel
+
+@{
+    ViewData["Title"] = "Random";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    var className = Model.Users.Count > 5 ? "popular" : null;
+}
+
+<h1 class="@className">@Model.Stock.Symbol</h1>
+
+@if (Model.Users.Count == 0)
+{
+    <text>No one ahas rented this movie before</text>
+}
+else
+{
+    <ul>
+        @foreach (var user in Model.Users)
+        {
+            <li>@user.Name</li>
+        }
+    </ul>
+}

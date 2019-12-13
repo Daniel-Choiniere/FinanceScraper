@@ -105,3 +105,5 @@ C:\Users\Dan\source\repos\FinanceScraper\FinanceScraper\bin\Microsoft.CodeDom.Pr
 C:\Users\Dan\source\repos\FinanceScraper\FinanceScraper\obj\Debug\FinanceScraper.csproj.CopyComplete
 C:\Users\Dan\source\repos\FinanceScraper\FinanceScraper\obj\Debug\FinanceScraper.dll
 C:\Users\Dan\source\repos\FinanceScraper\FinanceScraper\obj\Debug\FinanceScraper.pdb
+C:\Users\Dan\source\repos\FinanceScraper\FinanceScraper\obj\Debug\FinanceScraper.Migrations.InitialModel.resources
+C:\Users\Dan\source\repos\FinanceScraper\FinanceScraper\obj\Debug\FinanceScraper.csproj.GenerateResource.cache

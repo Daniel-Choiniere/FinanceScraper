@@ -203,6 +203,14 @@
     <Compile Include="Migrations\201912141431563_PopulateMembershipTypes.Designer.cs">
       <DependentUpon>201912141431563_PopulateMembershipTypes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201912142118291_AddNameFieldToMembershipType.cs" />
+    <Compile Include="Migrations\201912142118291_AddNameFieldToMembershipType.Designer.cs">
+      <DependentUpon>201912142118291_AddNameFieldToMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912142119473_SeedMembershipTypeNames.cs" />
+    <Compile Include="Migrations\201912142119473_SeedMembershipTypeNames.Designer.cs">
+      <DependentUpon>201912142119473_SeedMembershipTypeNames.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\MemberShipType.cs" />
@@ -314,6 +322,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912141431563_PopulateMembershipTypes.resx">
       <DependentUpon>201912141431563_PopulateMembershipTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912142118291_AddNameFieldToMembershipType.resx">
+      <DependentUpon>201912142118291_AddNameFieldToMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912142119473_SeedMembershipTypeNames.resx">
+      <DependentUpon>201912142119473_SeedMembershipTypeNames.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

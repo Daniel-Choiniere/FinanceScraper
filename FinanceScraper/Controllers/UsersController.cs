@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 using FinanceScraper.Models;
 using FinanceScraper.ViewModels;
+using System.Data.Entity;
 
 namespace FinanceScraper.Controllers
 {
@@ -24,7 +25,7 @@ namespace FinanceScraper.Controllers
 
         public ViewResult Index()
         {
-            var users = _context.Users.ToList();
+            var users = _context.Users.Include(u => u.MerMemberShipType).ToList();
 
             return View(users);
         }

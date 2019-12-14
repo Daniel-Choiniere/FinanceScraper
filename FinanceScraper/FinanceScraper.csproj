@@ -211,6 +211,10 @@
     <Compile Include="Migrations\201912142119473_SeedMembershipTypeNames.Designer.cs">
       <DependentUpon>201912142119473_SeedMembershipTypeNames.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201912142207087_AddBirthdateFieldToUser.cs" />
+    <Compile Include="Migrations\201912142207087_AddBirthdateFieldToUser.Designer.cs">
+      <DependentUpon>201912142207087_AddBirthdateFieldToUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\MemberShipType.cs" />
@@ -328,6 +332,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912142119473_SeedMembershipTypeNames.resx">
       <DependentUpon>201912142119473_SeedMembershipTypeNames.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912142207087_AddBirthdateFieldToUser.resx">
+      <DependentUpon>201912142207087_AddBirthdateFieldToUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

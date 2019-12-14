@@ -15,5 +15,6 @@ namespace FinanceScraper.Models
         public bool IsSubscribed { get; set; }
         public MemberShipType MerMemberShipType { get; set; }
         public byte MembershipTypeId { get; set; }
+        public DateTime? Birthdate { get; set; }
     }
 }

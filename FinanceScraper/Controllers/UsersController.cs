@@ -32,7 +32,7 @@ namespace FinanceScraper.Controllers
 
         public ActionResult Details(int id)
         {
-            var user = _context.Users.SingleOrDefault(u => u.Id == id);
+            var user = _context.Users.Include(u => u.MerMemberShipType).SingleOrDefault(u => u.Id == id);
 
             if (user == null)
                 throw new NotImplementedException();

@@ -111,3 +111,5 @@ C:\Users\Dan\source\repos\FinanceScraper\FinanceScraper\obj\Debug\FinanceScraper
 C:\Users\Dan\source\repos\FinanceScraper\FinanceScraper\obj\Debug\FinanceScraper.Migrations.AddMembershipType.resources
 C:\Users\Dan\source\repos\FinanceScraper\FinanceScraper\obj\Debug\FinanceScraper.Migrations.PopulateMemebrshipTypes.resources
 C:\Users\Dan\source\repos\FinanceScraper\FinanceScraper\obj\Debug\FinanceScraper.Migrations.ApplyAnnotationsToCustomerName.resources
+C:\Users\Dan\source\repos\FinanceScraper\FinanceScraper\obj\Debug\FinanceScraper.Migrations.AddMembershipType1.resources
+C:\Users\Dan\source\repos\FinanceScraper\FinanceScraper\obj\Debug\FinanceScraper.Migrations.PopulateMembershipTypes.resources

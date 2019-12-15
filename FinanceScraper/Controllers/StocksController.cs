@@ -11,20 +11,33 @@ namespace FinanceScraper.Controllers
     // GET: stocks/   abstract list of all stocks
     public class StocksController : Controller
     {
+        private ApplicationDbContext _context;
+
+        public StocksController()
+        {
+            _context = new ApplicationDbContext();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
+
         public ViewResult Index()
         {
-            var stocks = GetStocks();
+            var stocks = _context.Stocks.ToList();
 
             return View(stocks);
         }
 
-        private IEnumerable<Stock> GetStocks()
+        public ActionResult Details(int id)
         {
-            return new List<Stock>
-            {
-                new Stock { id = 1, Symbol = "BTC" },
-                new Stock { id = 2, Symbol = "ETH" }
-            };
+            var stock = _context.Stocks.SingleOrDefault(s => s.id == id);
+
+            if (stock == null)
+                return HttpNotFound();
+
+            return View(stock);
         }
 
 

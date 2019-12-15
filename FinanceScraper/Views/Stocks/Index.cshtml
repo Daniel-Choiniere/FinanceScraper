@@ -16,7 +16,7 @@
     @foreach (var stock in Model)
     {
         <tr>
-            <td>@stock.Symbol</td>
+            <td>@Html.ActionLink(stock.Symbol, "Details", "Stocks", new {id = stock.id}, null)</td>
         </tr>
     }
     </tbody>

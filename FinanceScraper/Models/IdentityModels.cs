@@ -22,6 +22,7 @@ namespace FinanceScraper.Models
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Stock> Stocks { get; set; }
+        public DbSet<MemberShipType> MemberShipTypes { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

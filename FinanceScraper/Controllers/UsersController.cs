@@ -25,7 +25,13 @@ namespace FinanceScraper.Controllers
 
         public ActionResult New()
         {
-            return View();
+            var membershiptypes = _context.MemberShipTypes.ToList();
+            var viewModel = new NewUserViewModel
+            {
+                MembershipTypes = membershiptypes
+            };
+
+            return View(viewModel);
         }
 
         public ViewResult Index()

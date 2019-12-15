@@ -37,8 +37,12 @@ namespace FinanceScraper.Controllers
         [HttpPost]
         public ActionResult Create(User user)
         {
-            return View();
+            _context.Users.Add(user);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Users");
         }
+
 
         public ViewResult Index()
         {

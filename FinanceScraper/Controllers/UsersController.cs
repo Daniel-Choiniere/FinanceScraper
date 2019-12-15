@@ -34,6 +34,12 @@ namespace FinanceScraper.Controllers
             return View(viewModel);
         }
 
+        [HttpPost]
+        public ActionResult Create(User user)
+        {
+            return View();
+        }
+
         public ViewResult Index()
         {
             var users = _context.Users.Include(u => u.MerMemberShipType).ToList();

@@ -1,0 +1,18 @@
+﻿@model FinanceScraper.Models.Stock
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Symbol</h2>
+<ul>
+    <li>LastPrice: @Model.LastPrice</li>
+    <li>Change: @Model.Change</li>
+    <li>Currency: @Model.Currency</li>
+    <li>Date/Time Data Collected: @Model.DataCollectedOn</li>
+    <li>Volume: @Model.Volume</li>
+    <li>Avg Volume 3m: @Model.AvgVol3m</li>
+    <li>Market Cap: @Model.MarketCap</li>
+</ul>
+

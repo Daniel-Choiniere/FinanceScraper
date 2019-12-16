@@ -294,7 +294,7 @@
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\Stocks\Details.cshtml" />
-    <Content Include="Views\Users\New.cshtml" />
+    <Content Include="Views\Users\CustomerForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

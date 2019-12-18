@@ -36,6 +36,7 @@ namespace FinanceScraper.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(User user)
         {
             if (!ModelState.IsValid)

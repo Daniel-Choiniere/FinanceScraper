@@ -38,6 +38,17 @@ namespace FinanceScraper.Controllers
         [HttpPost]
         public ActionResult Save(User user)
         {
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new NewUserViewModel()
+                {
+                    User = user,
+                    MembershipTypes = _context.MemberShipTypes.ToList()
+                };
+
+                return View("CustomerForm", viewModel);
+            }
+
             if (user.Id == 0)
               _context.Users.Add(user);
             else

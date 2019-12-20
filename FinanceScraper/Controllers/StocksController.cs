@@ -41,42 +41,6 @@ namespace FinanceScraper.Controllers
             if (stock == null)
                 return HttpNotFound();
 
-            ChromeOptions options = new ChromeOptions();
-            options.AddArgument("--window-size=1400, 600");
-            options.AddArgument("--headless");
-            options.AddArgument("--disable-gpu");
-            options.AddArgument("--no-sandbox");
-            options.AddArgument("--log-path=chromedriver.log");
-            options.AddArgument("--verbose");
-
-            string DRIVER_PATH = "C:/Users/Dan/Desktop";
-
-            IWebDriver driver = new ChromeDriver(DRIVER_PATH, options);
-
-            driver.Navigate().GoToUrl("https://finance.yahoo.com/");
-
-            driver.Manage().Window.Maximize();
-
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-
-            driver.FindElement(By.Id("uh-signedin")).Click();
-
-            driver.FindElement(By.Id("login-username")).SendKeys("daniel.choiniere@yahoo.com");
-            driver.FindElement(By.Id("login-signin")).Click();
-
-            driver.FindElement(By.Id("login-passwd")).SendKeys("iLOVEcareerdevs");
-            driver.FindElement(By.Id("login-signin")).Click();
-
-            Console.WriteLine("We are logged in!");
-
-            driver.FindElement(By.XPath("//*[@id='Nav-0-DesktopNav']/div/div[3]/div/nav/ul/li[2]/a")).Click();
-
-            driver.FindElement(By.XPath("//*[@id='Col1-0-Portfolios-Proxy']/main/table/tbody/tr[1]/td[1]/div[2]/a"))
-                .Click();
-
-            InsertDataToDb(driver);
-            LogTable(driver);
-
             return View(stock);
         }
 
@@ -116,18 +80,12 @@ namespace FinanceScraper.Controllers
                 .Click();
 
             InsertDataToDb(driver);
-            LogTable(driver);
 
-            var stocks = _context.Stocks.ToList();
+            var stockList = _context.Stocks.ToList();
 
-            return View(stocks);
+            return View(stockList);
         }
 
-        //        Save The scraped stock data to the database
-        public static void StartWebDriver()
-        {
-            
-        }
 
         public static void InsertDataToDb(IWebDriver driver)
         {
@@ -138,7 +96,7 @@ namespace FinanceScraper.Controllers
             tableRowList.RemoveAt(0);
 
             string connection =
-                @"Server=tcp:finance-scraper.database.windows.net,1433;Initial Catalog=YahooFinanceScraper;Persist Security Info=False;User ID=Dan;Password=iLOVEcareerdevs1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30";
+                @"Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-FinanceScraper-20191213062914.mdf;Initial Catalog=aspnet-FinanceScraper-20191213062914;Integrated Security=True";
 
             using (SqlConnection dbConnection = new SqlConnection(connection))
             {
@@ -153,7 +111,7 @@ namespace FinanceScraper.Controllers
                     string[] splitUpMarketcapFromTrade = splitRows[9].Split('\n');
 
                     SqlCommand insertCommand = new SqlCommand(
-                        "INSERT into dbo.FinanceData (Symbol, LastPrice, Change, Currency, DataCollectedOn, Volume, AvgVol3m, MarketCap) VALUES (@symbol, @lastprice, @change, @currency, @datacollectiontime, @volume, @avgvol, @marketcap)",
+                        "INSERT into dbo.Stocks (Symbol, LastPrice, Change, Currency, DataCollectedOn, Volume, AvgVol3m, MarketCap) VALUES (@symbol, @lastprice, @change, @currency, @datacollectiontime, @volume, @avgvol, @marketcap)",
                         dbConnection);
 
                     insertCommand.Parameters.AddWithValue("@symbol", splitUpPriceFromSymbol[0]);
@@ -174,37 +132,6 @@ namespace FinanceScraper.Controllers
             }
         }
 
-        private static void LogTable(IWebDriver driver)
-        {
-            var elemTable = driver.FindElement(By.XPath("//*[@id='pf-detail-table']/div[1]/table"));
-
-            List<IWebElement> tableRowList = new List<IWebElement>(elemTable.FindElements(By.TagName("tr")));
-            String strRowData = "";
-
-            foreach (var tableRowElement in tableRowList)
-            {
-                List<IWebElement> tableColList = new List<IWebElement>(tableRowElement.FindElements(By.TagName("td")));
-                if (tableColList.Count > 0)
-                {
-                    foreach (var tableColElement in tableColList)
-                    {
-                        strRowData = strRowData + tableColElement.Text + "\t\t";
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("YAHOO FINANCE STOCK WATCHLIST");
-                    Console.WriteLine(tableRowList[0].Text.Replace(" ", "      "));
-                }
-
-                Console.WriteLine(strRowData);
-                strRowData = String.Empty;
-            }
-
-            Console.WriteLine("");
-
-            driver.Close();
-        }
 
 
 

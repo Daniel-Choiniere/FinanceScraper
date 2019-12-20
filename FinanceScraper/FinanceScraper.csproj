@@ -305,6 +305,7 @@
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\Stocks\Details.cshtml" />
     <Content Include="Views\Users\CustomerForm.cshtml" />
+    <Content Include="Views\Stocks\Scrape.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

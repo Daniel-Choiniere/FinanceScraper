@@ -1,0 +1,40 @@
+﻿@model IEnumerable<FinanceScraper.Models.Stock>
+
+@{
+    ViewBag.Title = "Scrape";
+}
+
+<h2>ScrapeData</h2>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Stock</th>
+            <th>Symbol</th>
+            <th>LastPrice</th>
+            <th>Change</th>
+            <th>Currency</th>
+            <th>Data Collected On</th>
+            <th>Volume</th>
+            <th>Average 3m Volume</th>
+            <th>Market Cap</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var stock in Model)
+        {
+            <tr>
+                <td>@Html.ActionLink(stock.Symbol, "Details", "Stocks", new { id = stock.id }, null)</td>
+
+                <td>@stock.Symbol</td>
+                <td>@stock.LastPrice</td>
+                <td>@stock.Change</td>
+                <td>@stock.Currency</td>
+                <td>@stock.DataCollectedOn.</td>
+                <td>@stock.Volume</td>
+                <td>@stock.AvgVol3m</td>
+                <td>@stock.MarketCap</td>
+            </tr>
+        }
+    </tbody>
+</table>

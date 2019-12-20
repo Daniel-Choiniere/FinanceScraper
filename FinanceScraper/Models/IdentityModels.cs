@@ -20,7 +20,7 @@ namespace FinanceScraper.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public DbSet<User> Users { get; set; }
+        public new DbSet<User> Users { get; set; }
         public DbSet<Stock> Stocks { get; set; }
         public DbSet<MemberShipType> MemberShipTypes { get; set; }
 

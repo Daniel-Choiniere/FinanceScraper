@@ -21,10 +21,11 @@
         </tr>
     </thead>
     <tbody>
+
     @foreach (var stock in Model)
     {
         <tr>
-            <td>@Html.ActionLink(stock.Symbol, "Details", "Stocks", new { id = stock.id }, null)</td>
+            <td>@Html.ActionLink(stock.Symbol, "Details", "Stocks", new {id = stock.id}, null)</td>
 
             <td>@stock.Symbol</td>
             <td>@stock.LastPrice</td>

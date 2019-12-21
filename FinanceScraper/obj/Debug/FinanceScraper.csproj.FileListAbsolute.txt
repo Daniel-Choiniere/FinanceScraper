@@ -1,4 +1,3 @@
-C:\Users\Dan\source\repos\FinanceScraper\FinanceScraper\obj\Debug\FinanceScraper.csprojAssemblyReference.cache
 C:\Users\Dan\source\repos\FinanceScraper\FinanceScraper\bin\FinanceScraper.dll.config
 C:\Users\Dan\source\repos\FinanceScraper\FinanceScraper\bin\FinanceScraper.dll
 C:\Users\Dan\source\repos\FinanceScraper\FinanceScraper\bin\FinanceScraper.pdb
@@ -122,3 +121,4 @@ C:\Users\Dan\source\repos\FinanceScraper\FinanceScraper\bin\WebDriver.dll
 C:\Users\Dan\source\repos\FinanceScraper\FinanceScraper\bin\WebDriver.Support.dll
 C:\Users\Dan\source\repos\FinanceScraper\FinanceScraper\bin\WebDriver.xml
 C:\Users\Dan\source\repos\FinanceScraper\FinanceScraper\bin\WebDriver.Support.xml
+C:\Users\Dan\source\repos\FinanceScraper\FinanceScraper\obj\Debug\FinanceScraper.csprojAssemblyReference.cache

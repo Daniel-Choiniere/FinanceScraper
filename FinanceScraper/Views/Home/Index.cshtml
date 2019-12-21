@@ -2,19 +2,21 @@
     ViewBag.Title = "Home Page";
 }
 
-    <div class="jumbotron">
-        <h1>Yahoo! Finance Scraper</h1>
-        <p class="lead">A real time Stock scraper that will retrieve up to date Stock data from the Yahoo Finance website.</p>
-        <p>@Html.ActionLink("Start a New Scrape", "Scrape", "Stocks")</p>
-    </div>
-
+<div class="jumbotron">
+    <h1>Yahoo! Finance Scraper</h1>
+    <p class="lead">A real time Stock scraper that will retrieve up to date Stock data from the Yahoo Finance website.</p>
+</div>
+<div class="jumbotron">
+    <h3>@Html.ActionLink("Start a New Scrape", "Scrape", "Stocks", null, new { @class = "btn btn-success btn-lg" })</h3>
+</div>
+<br />
 <div class="row">
     <div class="col-sm-6">
         <div class="card">
             <div class="card-body">
                 <h4>Check me out on LinkedIn</h4>
                 @* <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> *@
-                <a href="https://www.linkedin.com/in/daniel-choiniere-a7595612a/" class="btn btn-primary" target="_blank">LinkedIn</a>
+                <a href="https://www.linkedin.com/in/daniel-choiniere-a7595612a/" class="btn btn-primary btn-sm" target="_blank">LinkedIn</a>
             </div>
         </div>
     </div>
@@ -23,7 +25,7 @@
             <div class="card-body">
                 <h4>Visit the GitHub repo for this project</h4>
                 @* <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> *@
-                <a href="https://github.com/Daniel-Choiniere/FinanceScraper" class="btn btn-primary" target="_blank">GitHub</a>
+                <a href="https://github.com/Daniel-Choiniere/FinanceScraper" class="btn btn-primary btn-sm" target="_blank">GitHub</a>
             </div>
         </div>
     </div>

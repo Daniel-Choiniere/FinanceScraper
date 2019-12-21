@@ -10,7 +10,7 @@
         <tr>
             <th>Stock</th>
             <th>Symbol</th>
-            <th>LastPrice</th>
+            <th>Last Price</th>
             <th>Change</th>
             <th>Currency</th>
             <th>Data Collected On</th>
@@ -21,7 +21,7 @@
     </thead>
     <tbody>
 
-        @foreach (var stock in Model)
+        @foreach (var stock in Model.Reverse())
         {
             <tr>
                 <td>@Html.ActionLink(stock.Symbol, "Details", "Stocks", new { id = stock.id }, null)</td>

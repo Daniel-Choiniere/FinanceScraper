@@ -122,3 +122,4 @@ C:\Users\Dan\source\repos\FinanceScraper\FinanceScraper\bin\WebDriver.Support.dl
 C:\Users\Dan\source\repos\FinanceScraper\FinanceScraper\bin\WebDriver.xml
 C:\Users\Dan\source\repos\FinanceScraper\FinanceScraper\bin\WebDriver.Support.xml
 C:\Users\Dan\source\repos\FinanceScraper\FinanceScraper\obj\Debug\FinanceScraper.csprojAssemblyReference.cache
+C:\Users\Dan\source\repos\FinanceScraper\FinanceScraper\obj\Debug\FinanceScraper.Migrations.removeUsers.resources

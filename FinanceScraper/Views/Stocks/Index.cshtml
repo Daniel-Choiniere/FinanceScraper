@@ -22,7 +22,7 @@
     </thead>
     <tbody>
 
-    @foreach (var stock in Model)
+    @foreach (var stock in Model.Reverse())
     {
         <tr>
             <td>@Html.ActionLink(stock.Symbol, "Details", "Stocks", new {id = stock.id}, null)</td>

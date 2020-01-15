@@ -81,7 +81,9 @@ namespace FinanceScraper.Controllers
 
             var stockList = _context.Stocks.ToList();
 
-            return View(stockList);
+            var lastTen = stockList.OrderByDescending(m => m.id).Take(10);
+
+            return View(lastTen);
         }
 
 

@@ -1,7 +1,24 @@
 ﻿@{
     ViewBag.Title = "About";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+<h2>Yahoo! Finance Web Scraper</h2>
+<br>
+<p>
+    This application was built as part of a capstone project for The Career Devs Computer Science Academy.<br>
+    <br>
+    The main task was to build a C# based scraper that will pull stock data from my personal Yahoo Finance account watchlist.<br>
+    <br>
+    The scraper needed to be able to store each scrape in a SQL database.<br>
+    <br>
+    The application also includes a web-based user interface where a user can perform a new scrape and view the scrape history.<br>
+    <br>
+    To navigate to and through the Yahoo Finance page I used Selenium with the Chrome Driver.<br>
+    <br>
+    To insert data to my database I used the SqlConnection and SqlCommand classes under the System.Data.SqlClient namespace.<br>
+    <br>
+    When scaffolding out my front end I went with an ASP.NET MVC web application with a local SQL database.<br>
+    <br>
+    I also implemented individual user authentication into the application, only allowing registered and logged-in users to be able to perform scrapes and view stock data. <br>
+</p>
 
-<p>Use this area to provide additional information.</p>
+

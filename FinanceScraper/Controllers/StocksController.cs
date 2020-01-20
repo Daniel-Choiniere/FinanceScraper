@@ -29,9 +29,9 @@ namespace FinanceScraper.Controllers
         {
             var stocks = _context.Stocks.ToList();
 
-            var firstFifity = stocks.OrderByDescending(s => s.id).Take(20);
+            var firstFifty = stocks.OrderByDescending(s => s.id).Take(20).Reverse();
 
-            return View(firstFifity);
+            return View(firstFifty);
         }
 
         public ActionResult Details(int id)
@@ -44,7 +44,16 @@ namespace FinanceScraper.Controllers
             return View(stock);
         }
 
-        public ActionResult Scrape()
+        public ViewResult SearchForStock()
+        {
+            var stocks = _context.Stocks.ToList();
+
+            var firstFifty = stocks.OrderByDescending(s => s.id).Take(20).Reverse();
+
+            return View(firstFifty);
+        }
+
+    public ActionResult Scrape()
         {
             ChromeOptions options = new ChromeOptions();
             options.AddArgument("--window-size=1400, 600");
@@ -83,7 +92,7 @@ namespace FinanceScraper.Controllers
 
             var stockList = _context.Stocks.ToList();
 
-            var lastTen = stockList.OrderByDescending(s => s.id).Take(10);
+            var lastTen = stockList.OrderByDescending(s => s.id).Take(10).Reverse();
 
             return View(lastTen);
         }

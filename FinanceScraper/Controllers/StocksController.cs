@@ -29,7 +29,7 @@ namespace FinanceScraper.Controllers
         {
             var stocks = _context.Stocks.ToList();
 
-            var firstFifty = stocks.OrderByDescending(s => s.id).Take(20).Reverse();
+            var firstFifty = stocks.OrderByDescending(s => s.id).Take(40).Reverse();
 
             return View(firstFifty);
         }
@@ -48,9 +48,9 @@ namespace FinanceScraper.Controllers
         {
             var stocks = _context.Stocks.ToList();
 
-            var firstFifty = stocks.OrderByDescending(s => s.id).Take(20).Reverse();
+            var searchReults = stocks.OrderByDescending(s => s.id).Take(50).Reverse();
 
-            return View(firstFifty);
+            return View(searchReults);
         }
 
     public ActionResult Scrape()

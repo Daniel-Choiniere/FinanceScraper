@@ -14,7 +14,20 @@
 </div>
 <div class="jumbotron">
     <h3>@Html.ActionLink("Search History By Stock Name", "SearchForStock", "Stocks", null, new { @class = "btn btn-success btn-lg" })</h3>
-</div>
+    @Html.DropDownList("Stocks", new List<SelectListItem>
+    {
+        new SelectListItem{ Text = "AAPL", Value = "1"},
+        new SelectListItem{ Text = "MRMD", Value = "2" },
+        new SelectListItem{ Text = "FB", Value = "3" },
+        new SelectListItem{ Text = "TSLA", Value = "4" },
+        new SelectListItem{ Text = "TWTR", Value = "5" },
+        new SelectListItem{ Text = "GOOG", Value = "6" },
+        new SelectListItem{ Text = "MSFT", Value = "7" },
+        new SelectListItem{ Text = "ATVI", Value = "8" },
+        new SelectListItem{ Text = "WMT", Value = "9" },
+        new SelectListItem{ Text = "ATVI", Value = "10" }
+    }, "Select a Stock") 
+    </div>
 <br />
 <div class="row">
     <div class="col-sm-6">

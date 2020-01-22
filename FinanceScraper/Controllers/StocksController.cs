@@ -48,9 +48,15 @@ namespace FinanceScraper.Controllers
         {
             var stocks = _context.Stocks.ToList();
 
-            var searchReults = stocks.OrderByDescending(s => s.id).Take(50).Reverse();
+//            var searchResults = stocks.Where(s => s.Symbol == ("TWTR"));
+            //            var searchResults = stocks.Where(s => s.Currency == ("USD"));
 
-            return View(searchReults);
+            var searchResults = from s in stocks
+                where s.Symbol.Contains("AAPL")
+                select s;
+
+            var allSearchResults = searchResults.OrderByDescending(s => s.id);
+            return View(allSearchResults);
         }
 
     public ActionResult Scrape()
@@ -81,7 +87,7 @@ namespace FinanceScraper.Controllers
             driver.FindElement(By.Id("login-passwd")).SendKeys("iLOVEcareerdevs");
             driver.FindElement(By.Id("login-signin")).Click();
 
-            Console.WriteLine("We are logged in!");
+            Console.WriteLine(@"We are logged in!");
 
             driver.FindElement(By.XPath("//*[@id='Nav-0-DesktopNav']/div/div[3]/div/nav/ul/li[2]/a")).Click();
 
@@ -138,7 +144,7 @@ namespace FinanceScraper.Controllers
 
                 }
 
-                Console.WriteLine("Data Collection Successful");
+                Console.WriteLine(@"Data Collection Successful");
                 dbConnection.Close();
             }
         }

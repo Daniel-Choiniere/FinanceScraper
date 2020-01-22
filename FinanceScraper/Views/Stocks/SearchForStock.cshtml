@@ -11,6 +11,7 @@
     <thead>
         <tr>
             <th>Stock</th>
+            <th>Symbol</th>
             <th>LastPrice</th>
             <th>Change</th>
             <th>Currency</th>
@@ -26,6 +27,8 @@
         {
             <tr>
                 <td>@Html.ActionLink(stock.Symbol, "Details", "Stocks", new { id = stock.id }, null)</td>
+                
+                <td>@stock.Symbol</td>
                 <td>@stock.LastPrice</td>
                 <td>@stock.Change</td>
                 <td>@stock.Currency</td>

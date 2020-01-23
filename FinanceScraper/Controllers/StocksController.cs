@@ -29,7 +29,7 @@ namespace FinanceScraper.Controllers
         {
             var stocks = _context.Stocks.ToList();
 
-            var firstFifty = stocks.OrderByDescending(s => s.id).Take(40).Reverse();
+            var firstFifty = stocks.OrderByDescending(s => s.id).Take(50).Reverse();
 
             return View(firstFifty);
         }
@@ -44,18 +44,15 @@ namespace FinanceScraper.Controllers
             return View(stock);
         }
 
-        public ViewResult SearchForStock()
+        public ActionResult SearchForStock(Search model)
         {
             var stocks = _context.Stocks.ToList();
 
-//            var searchResults = stocks.Where(s => s.Symbol == ("TWTR"));
-            //            var searchResults = stocks.Where(s => s.Currency == ("USD"));
-
             var searchResults = from s in stocks
-                where s.Symbol.Contains("AAPL")
+                where s.Symbol.Contains(model.SearchForStock)
                 select s;
 
-            var allSearchResults = searchResults.OrderByDescending(s => s.id);
+            var allSearchResults = searchResults.OrderByDescending(s => s.id).Take(50).Reverse();
             return View(allSearchResults);
         }
 

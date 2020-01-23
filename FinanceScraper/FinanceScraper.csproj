@@ -234,6 +234,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Search.cs" />
     <Compile Include="Models\MemberShipType.cs" />
     <Compile Include="Models\Stock.cs" />
     <Compile Include="Models\IdentityModels.cs" />

@@ -56,7 +56,7 @@ namespace FinanceScraper.Controllers
             return View(allSearchResults);
         }
 
-    public ActionResult Scrape()
+        public ActionResult Scrape()
         {
             ChromeOptions options = new ChromeOptions();
             options.AddArgument("--window-size=1400, 600");

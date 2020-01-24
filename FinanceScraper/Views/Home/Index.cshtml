@@ -14,7 +14,7 @@
     <h3>@Html.ActionLink("Start a New Scrape", "Scrape", "Stocks", null, new { @class = "btn btn-success btn-lg" })</h3>
 </div>
 <div class="jumbotron">
-
+    <input type="text" id="txt" readonly="readonly" />
     @Html.DropDownList("Stocks", new List<SelectListItem>
     {
         new SelectListItem {Text = "AAPL", Value = "1"},
@@ -27,12 +27,12 @@
         new SelectListItem {Text = "ATVI", Value = "8"},
         new SelectListItem {Text = "WMT", Value = "9"},
         new SelectListItem {Text = "ATVI", Value = "10"}
-    }, "Choose a Scraped Stock", FormMethod.Post)
+    }, "Choose a Scraped Stock", new { @onChange = "selectedText(this)" })
 
     @using (Html.BeginForm("SearchForStock", "Stocks", FormMethod.Post))
     {
         @Html.TextBoxFor(model => model.SearchForStock)
-        @Html.ValidationMessageFor(model => model.SearchForStock)
+
 <div>
     <button type="submit" class="btn btn-success btn-lg">Search Stock Data by Symbol</button>
 
@@ -60,5 +60,15 @@
         </div>
     </div>
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    function selectedText(ddlItem) {
+        var selValue = ddlItem.value;
+        var selText = ddlItem.options[ddlItem.selectedIndex].innerHTML;
+        $('#txt').val(selText);
+
+    }
+</script>
 
 

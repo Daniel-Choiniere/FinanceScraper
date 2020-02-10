@@ -100,7 +100,6 @@ namespace FinanceScraper.Controllers
             return View(lastTen);
         }
 
-
         public static void InsertDataToDb(IWebDriver driver)
         {
             var elemTable = driver.FindElement(By.XPath("//*[@id='pf-detail-table']/div[1]/table"));
@@ -118,6 +117,11 @@ namespace FinanceScraper.Controllers
 
                 for (var i = 0; i < tableRowList.Count; i++)
                 {
+//                    var stockFullNameText = driver.FindElement(By.XPath("//*[@id='pf-detail-table']/div[1]/table/tbody/tr[1]/td[1]/a")).GetAttribute("title");
+
+                    IWebElement element = driver.FindElement(By.TagName("a"));
+                    string title = element.GetAttribute("title");
+
                     string[] splitRows = tableRowList[i].Text.Split(' ');
 
                     string[] splitUpPriceFromSymbol = splitRows[0].Split('\n');
@@ -125,7 +129,7 @@ namespace FinanceScraper.Controllers
                     string[] splitUpMarketcapFromTrade = splitRows[9].Split('\n');
 
                     SqlCommand insertCommand = new SqlCommand(
-                        "INSERT into dbo.Stocks (Symbol, LastPrice, Change, Currency, DataCollectedOn, Volume, AvgVol3m, MarketCap) VALUES (@symbol, @lastprice, @change, @currency, @datacollectiontime, @volume, @avgvol, @marketcap)",
+                        "INSERT into dbo.Stocks (Symbol, LastPrice, Change, Currency, DataCollectedOn, Volume, AvgVol3m, MarketCap, FullName, DatePublic) VALUES (@symbol, @lastprice, @change, @currency, @datacollectiontime, @volume, @avgvol, @marketcap, @FullName, @DatePublic)",
                         dbConnection);
 
                     insertCommand.Parameters.AddWithValue("@symbol", splitUpPriceFromSymbol[0]);
@@ -136,6 +140,8 @@ namespace FinanceScraper.Controllers
                     insertCommand.Parameters.AddWithValue("@volume", splitRows[6]);
                     insertCommand.Parameters.AddWithValue("@avgvol", splitRows[8]);
                     insertCommand.Parameters.AddWithValue("@marketcap", splitUpMarketcapFromTrade[0]);
+                    insertCommand.Parameters.AddWithValue("@FullName", title);
+                    insertCommand.Parameters.AddWithValue("@DatePublic", splitUpMarketcapFromTrade[0]);
 
                     insertCommand.ExecuteNonQuery();
 

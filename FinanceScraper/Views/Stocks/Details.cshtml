@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@Model.Symbol</h2>
+<h2>@Model.FullName</h2>
 <ul>
     <li>LastPrice: @Model.LastPrice</li>
     <li>Change: @Model.Change</li>
@@ -14,5 +14,7 @@
     <li>Volume: @Model.Volume</li>
     <li>Avg Volume 3m: @Model.AvgVol3m</li>
     <li>Market Cap: @Model.MarketCap</li>
+
+    <li>Date Went Public: @Model.DatePublic</li>
 </ul>
 

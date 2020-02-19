@@ -76,7 +76,7 @@ namespace FinanceScraper.Controllers
 
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
 
-            driver.FindElement(By.Id("uh-signedin")).Click();
+            driver.FindElement(By.Id("header-signin-link")).Click();
 
             driver.FindElement(By.Id("login-username")).SendKeys("daniel.choiniere@yahoo.com");
             driver.FindElement(By.Id("login-signin")).Click();
@@ -117,8 +117,6 @@ namespace FinanceScraper.Controllers
 
                 for (var i = 0; i < tableRowList.Count; i++)
                 {
-//                    var stockFullNameText = driver.FindElement(By.XPath("//*[@id='pf-detail-table']/div[1]/table/tbody/tr[1]/td[1]/a")).GetAttribute("title");
-
                     IWebElement element = driver.FindElement(By.TagName("a"));
                     string title = element.GetAttribute("title");
 

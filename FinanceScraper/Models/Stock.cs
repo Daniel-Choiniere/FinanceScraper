@@ -15,7 +15,6 @@ namespace FinanceScraper.Models
         public string Volume { get; set; }
         public string AvgVol3m { get; set; }
         public string MarketCap { get; set; }
-
         public string FullName { get; set; }
         public string DatePublic { get; set; }
     }
